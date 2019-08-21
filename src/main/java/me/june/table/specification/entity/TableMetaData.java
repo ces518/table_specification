@@ -10,6 +10,7 @@ import java.util.List;
  **/
 public class TableMetaData {
     private String tableName;
+    private String remarks;
     private List columns;
 
     public String getTableName() {
@@ -18,6 +19,14 @@ public class TableMetaData {
 
     public void setTableName(String tableName) {
         this.tableName = tableName;
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
     }
 
     public List getColumns() {

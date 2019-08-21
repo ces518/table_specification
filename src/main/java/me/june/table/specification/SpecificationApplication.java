@@ -56,10 +56,13 @@ public class SpecificationApplication {
         List tables = new ArrayList();
         while (resultSet.next()) {
             String table_name = resultSet.getString("TABLE_NAME");
+            String remarks = resultSet.getString("REMARKS");
             ResultSet columns = metaData.getColumns(null, null, table_name, null);
             TableMetaData sqlTableMetaData = new TableMetaData();
+            sqlTableMetaData.setRemarks(remarks);
             sqlTableMetaData.setTableName(table_name);
             sqlTableMetaData.setColumns(createColumns(columns));
+
             tables.add(sqlTableMetaData);
         }
         return tables;
@@ -74,6 +77,7 @@ public class SpecificationApplication {
             sqlColumnMetaData.setAutoIncrement(columns.getString("IS_AUTOINCREMENT"));
             sqlColumnMetaData.setIsNullable(columns.getString("IS_NULLABLE"));
             sqlColumnMetaData.setColumnSize(columns.getString("COLUMN_SIZE"));
+            sqlColumnMetaData.setRemarks(columns.getString("REMARKS"));
             System.out.println(sqlColumnMetaData.toString());
             tableColumns.add(sqlColumnMetaData);
         }

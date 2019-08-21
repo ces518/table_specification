@@ -12,6 +12,7 @@ public class ColumnMetaData {
     private String autoIncrement;
     private String type;
     private String isNullable;
+    private String remarks;
 
     public String getColumnName() {
         return columnName;
@@ -19,6 +20,14 @@ public class ColumnMetaData {
 
     public void setColumnName(String columnName) {
         this.columnName = columnName;
+    }
+
+    public String getColumnSize() {
+        return columnSize;
+    }
+
+    public void setColumnSize(String columnSize) {
+        this.columnSize = columnSize;
     }
 
     public String getAutoIncrement() {
@@ -45,11 +54,23 @@ public class ColumnMetaData {
         this.isNullable = isNullable;
     }
 
-    public String getColumnSize() {
-        return columnSize;
+    public String getRemarks() {
+        return remarks;
     }
 
-    public void setColumnSize(String columnSize) {
-        this.columnSize = columnSize;
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+
+    @Override
+    public String toString() {
+        return "ColumnMetaData{" +
+                "columnName='" + columnName + '\'' +
+                ", columnSize='" + columnSize + '\'' +
+                ", autoIncrement='" + autoIncrement + '\'' +
+                ", type='" + type + '\'' +
+                ", isNullable='" + isNullable + '\'' +
+                ", remarks='" + remarks + '\'' +
+                '}';
     }
 }
