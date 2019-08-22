@@ -13,6 +13,8 @@ public class ColumnMetaData {
     private String type;
     private String isNullable;
     private String remarks;
+    private String isPk;
+    private String isFk;
 
     public String getColumnName() {
         return columnName;
@@ -62,6 +64,22 @@ public class ColumnMetaData {
         this.remarks = remarks;
     }
 
+    public String getIsPk() {
+        return isPk;
+    }
+
+    public void setIsPk(String isPk) {
+        this.isPk = isPk;
+    }
+
+    public String getIsFk() {
+        return isFk;
+    }
+
+    public void setIsFk(String isFk) {
+        this.isFk = isFk;
+    }
+
     @Override
     public String toString() {
         return "ColumnMetaData{" +
@@ -71,6 +89,8 @@ public class ColumnMetaData {
                 ", type='" + type + '\'' +
                 ", isNullable='" + isNullable + '\'' +
                 ", remarks='" + remarks + '\'' +
+                ", isPk='" + isPk + '\'' +
+                ", isFk='" + isFk + '\'' +
                 '}';
     }
 }

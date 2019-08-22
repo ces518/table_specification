@@ -36,4 +36,13 @@ public class TableMetaData {
     public void setColumns(List columns) {
         this.columns = columns;
     }
+
+    @Override
+    public String toString() {
+        return "TableMetaData{" +
+                "tableName='" + tableName + '\'' +
+                ", remarks='" + remarks + '\'' +
+                ", columns=" + columns +
+                '}';
+    }
 }
