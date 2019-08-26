@@ -39,7 +39,7 @@ public class SpecificationApplication {
             Map<String, Object> beans = new HashMap<>();
             List tables = createTables(metaData, resultSet);
             beans.put("tables", tables);
-            Resource resource = resourceLoader.getResource("classpath:table.xls");
+            Resource resource = resourceLoader.getResource("classpath:newtable.xls");
             InputStream inputStream = resource.getInputStream();
             XLSTransformer xlsTransformer = new XLSTransformer();
             Workbook workbook = xlsTransformer.transformXLS(inputStream, beans);
@@ -105,7 +105,7 @@ public class SpecificationApplication {
             sqlColumnMetaData.setColumnName(columns.getString("COLUMN_NAME").toUpperCase());
             sqlColumnMetaData.setType(columns.getString("TYPE_NAME").toUpperCase());
             sqlColumnMetaData.setAutoIncrement(columns.getString("IS_AUTOINCREMENT"));
-            sqlColumnMetaData.setIsNullable(columns.getString("IS_NULLABLE"));
+            sqlColumnMetaData.setIsNullable(columns.getString("IS_NULLABLE").equalsIgnoreCase("YES") ? "NULL" : "NOT NULL");
             sqlColumnMetaData.setColumnSize(columns.getString("COLUMN_SIZE"));
             sqlColumnMetaData.setRemarks(columns.getString("REMARKS"));
             String isPk = primaryKeys.stream().filter(s -> s.equalsIgnoreCase(sqlColumnMetaData.getColumnName())).findFirst().map(s -> "Y").orElse("");
